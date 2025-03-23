@@ -1,7 +1,9 @@
 import cv2
 import numpy as np
 import sys 
-def load_image(image):
+def load_image(image="image.jpg"):
+    if image == "image.jpg":
+        print("No image path provided, using default image")
     return cv2.imread(image)
 
 def show_image(title,image):
@@ -31,10 +33,13 @@ def apply_convolution(image, kernel):
     return cv2.filter2D(image, -1, kernel)
 
 def main():
-    image = load_image(sys.argv[1])
+    if len(sys.argv) > 1:
+        image = load_image(sys.argv[1])
+    else:
+        image = load_image()
     show_image("Preprocessed", image)
     while True:
-        n = int(input("Enter the value of n: "))
+        n = int(input("Enter the value of n - positive number: "))
         if n>0:
             break
     kernel = create_matrix(n)
