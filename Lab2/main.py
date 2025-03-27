@@ -1,9 +1,14 @@
 import cv2
 import numpy as np
 import sys 
+import os
+
 def load_image(image="image.jpg"):
     if image == "image.jpg":
         print("No image path provided, using default image")
+    if not os.path.exists(image):
+        print(f"Error: File {image} not found")
+        sys.exit(1)
     return cv2.imread(image)
 
 def show_image(title,image):
