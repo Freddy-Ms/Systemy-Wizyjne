@@ -5,8 +5,8 @@ def apply_contouring(image):
     return cv2.Canny(image, 100, 200)
 
 def apply_threshold(image):
-    _, thresh = cv2.threshold(image, 128, 255, cv2.THRESH_BINARY)
-    return thresh
+     return cv2.adaptiveThreshold(image, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+                                 cv2.THRESH_BINARY, 11, 2)
 
 def remove_artifacts(image):
     kernel = np.ones((2,2), np.uint8)
