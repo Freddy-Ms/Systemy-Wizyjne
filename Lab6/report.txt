@@ -1,0 +1,7 @@
+REPORT: Corner Comparison Before and After Rotation
+
+Rotation angle: 44 degrees
+Corners before rotation: 2616
+Corners after rotation: 2268
+Matched corners (after reverse transformation): 2013
+Percentage preserved: 76.95%
